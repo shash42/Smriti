@@ -1,0 +1,160 @@
+[31merror[39m: [CreateMappingConfig] uncaughtException: connect ETIMEDOUT 35.170.158.160:443 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m48189440[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m28787192[39m,
+        external: [33m397500[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.8439063[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [Helper] uncaughtException: connect ETIMEDOUT 35.170.158.160:443 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m48758784[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m29064848[39m,
+        external: [33m397500[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.8751851[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [SbEvent] uncaughtException: connect ETIMEDOUT 35.170.158.160:443 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m48865280[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m29170496[39m,
+        external: [33m397500[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.8751851[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [ExitHandler] uncaughtException: connect ETIMEDOUT 35.170.158.160:443 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m48951296[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m29254488[39m,
+        external: [33m397500[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.890782[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [CreateMappingConfig] uncaughtException: socket hang up 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m49061888[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m29371104[39m,
+        external: [33m351716[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.890782[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [Helper] uncaughtException: socket hang up 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m49152000[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m29455880[39m,
+        external: [33m351716[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.890782[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [SbEvent] uncaughtException: socket hang up 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m48635904[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m28882280[39m,
+        external: [33m342821[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.9064063[39m },
+  trace: [],
+  stack: [90mundefined[39m }
+[31merror[39m: [ExitHandler] uncaughtException: socket hang up 
+{ date: [32m'Fri Aug 31 2018 10:28:51 GMT+0530 (India Standard Time)'[39m,
+  process: 
+   { pid: [33m6676[39m,
+     uid: [1mnull[22m,
+     gid: [1mnull[22m,
+     cwd: [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod'[39m,
+     execPath: [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+     version: [32m'v6.11.3'[39m,
+     argv: 
+      [ [32m'C:\\Program Files\\nodejs\\node.exe'[39m,
+        [32m'C:\\Users\\YASH WARDHAN\\Desktop\\cw-2018\\final prod\\starter.js'[39m ],
+     memoryUsage: 
+      { rss: [33m48713728[39m,
+        heapTotal: [33m34635776[39m,
+        heapUsed: [33m28962360[39m,
+        external: [33m342821[39m } },
+  os: { loadavg: [ [33m0[39m, [33m0[39m, [33m0[39m ], uptime: [33m180550.9064063[39m },
+  trace: [],
+  stack: [90mundefined[39m }

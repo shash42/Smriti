@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="style.css">	
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+	<style>
+	#ok {
+		position: absolute;
+		top: 58%;
+		left: -1px;
+		width: 100%;
+		height: 42%;
+		background: #fff;
+		font-family: raleway;
+		text-align: center;
+		line-height: 25px;
+		box-sizing: border-box;
+		padding-top: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+	}
+	</style>
+</head>
+
+<body>
+<div class="main">
+	<div class="main">
+
+      <div class="frame">
+
+        <div id="screen">
+			<img src="screens/stats.png" alt="">	
+			<div id="ok" readonly="readonly">
+			
+			</div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</body>
+</html>
+<script>
+
+	var missed = [];
+	var textarea = document.getElementById("ok");
+
+	
+	if(localStorage.getItem("missed")) {
+		missed = JSON.parse(localStorage.getItem("missed"));
+	}
+
+	var missedArr = JSON.parse(missed);
+
+	console.log(localStorage.getItem("speechText"));
+
+	for(var i = 0; i < missedArr.length - 1; i++) {
+		textarea.innerHTML += "<div class = a" +i+ ">" + missedArr[i] + "</div>"
+	}
+
+	
+
+</script>
