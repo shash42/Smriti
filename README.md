@@ -1,1 +1,1 @@
-minet2018
+Smriti means “Remembrance”. It is our novel solution to help you learn much faster with ease. It is an interactive learning aid that detects your notes through OCR technology, hears your answers and prompts you with what you're missing based on the real-time semantic matching of recognized speech (Natural Language Processing).
