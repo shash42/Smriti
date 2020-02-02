@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
+        <script src="https://unpkg.com/sweetalert2@7.3.2/dist/sweetalert2.all.js"></script>
+	<link rel="stylesheet" href="style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+
+
+
+	<style>
+	@font-face {
+		font-family: suir;
+		src: url("suir.otf");
+	}
+		textarea {
+			position: absolute;
+			top: 75px;
+			left: 17px;
+			width: 260px;
+			height: 340px;
+			background: transparent;
+			z-index: 999;
+			border: none;
+			outline: none;
+			box-sizing: border-box;
+			padding: 20px;
+			font-family: raleway;
+			font-weight: 300;
+			text-transform: uppercase;
+			padding-top: 25px;
+			line-height: 22px;
+			letter-spacing: 1px;
+
+		}
+
+		.bts {
+			position: absolute;
+			z-index: 999;
+			top: 454px;
+		}
+		.buttonsa {
+			position: absolute;
+			top: 84%;
+			left: 0;
+			width: 41%;
+			height: 54px;
+			background: #579aef;
+			z-index: 999;
+			border: none;
+			text-transform: uppercase;
+			color: #fff;
+			left: 28%;
+			transform: translateX(-50%);
+			font-family: suir;
+			font-weight: 600;
+			letter-spacing: 1.6px;
+			border-radius: 5px;
+			font-size: 14px;
+			outline: none;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div class="main">
+	<div class="main">
+
+      <div class="frame">
+
+        <div id="screen" style = "overflow: scroll;">
+      	<button class = "buttonsa" id = "listen"><span id = "bttxt">Listen</span></button> <button class = "buttonsa"  style="left: 74%"id = "listen2" ><span id = "bttxt">Check</span></button>
+			<textarea id = "txt"></textarea>
+			<img src="screens/revise.png" style="height: auto;" alt="">
+        </div>
+    </div>
+</div>
+
+
+</div>
+</body>
+</html>
+
+
+<script>
+var evaluate = 0;
+var textarea = document.getElementById("txt");
+var linesArr = JSON.parse(localStorage.getItem("ocrText"));
+var speechText = [];
+var ocrText = [];
+    var para = [];
+
+console.log(localStorage.getItem("mode"));
+console.log(localStorage.getItem("keywordsArr"));
+
+console.log(linesArr);
+
+for(var i = 0; i < linesArr.length; i++) {
+	ocrText.push(linesArr[i].text);
+}
+
+var start = document.getElementById("listen");
+
+var run = document.getElementById("listen2");
+
+run.addEventListener("click", function() {
+	swal({
+  title: 'Please Wait',
+  html: 'Matching Texts.',
+			target: document.getElementById('screen'),
+  timer: 3000,
+  onOpen: () => {
+    swal.showLoading()
+
+  },
+  onClose: () => {
+		swal({
+		 type: 'success',
+		 title: 'Matching Complete!',
+		 text: 'Check your results!',
+	 			target: document.getElementById('screen')
+		})
+
+		$('.swal2-confirm').click(function() {
+			if(localStorage.getItem("mode") == 0) {
+
+               window.location.href = "stats";
+			} else {
+				window.location.href = "stats2";
+			}
+         });
+
+
+  }
+});
+	var data = "ocrText="+JSON.stringify(ocrText)+"&speechText="+JSON.stringify(para)+"&mode="+localStorage.getItem("mode")+"&keywordsArr="+localStorage.getItem("keywordsArr");
+	if (localStorage.getItem("mode") == 0) {
+		$.post("/part1", data, function(e) {
+		if(e == "fail") {
+			console.log("Error");
+		} else {
+			console.log(e);
+
+			localStorage.setItem("missed", JSON.stringify(e));
+			localStorage.setItem("speechText", JSON.stringify(para));
+
+
+		}
+	});
+	}
+	
+	if(localStorage.getItem("mode") == 1) {
+		$.post("/part2", data, function(e) {
+			if(e == "fail") {
+			console.log("Error");
+		} else {
+			console.log(e);
+			localStorage.setItem("missedSentences", JSON.stringify(e));
+			console.log(localStorage.getItem("missedSentences"));
+			
+			localStorage.setItem("speechText", JSON.stringify(para));
+
+		}
+		});
+	}
+	
+	
+});
+
+
+start.addEventListener("click", function () {
+	  // get last word said element
+    var field = document.getElementById('val');
+
+
+    evaluate = 1;
+
+    // new instance of speech recognition
+    var recognition = new webkitSpeechRecognition();
+    // set params
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.start();
+
+    var words = [];
+
+
+    recognition.onresult = function(event){
+
+
+      var resultsLength = event.results.length -1 ;
+
+      var ArrayLength = event.results[resultsLength].length -1;
+
+      var saidWord = event.results[resultsLength][ArrayLength].transcript;
+
+      if (saidWord) {
+        Fetch();
+      }
+
+
+    function Fetch() {
+        textarea.value += saidWord + ".";
+        para.push(saidWord);
+
+        console.log(para);
+
+        words  = saidWord.split(" ");
+
+    }
+
+    }
+
+    // speech error handling
+    recognition.onerror = function(event){
+      console.log('error?');
+      console.log(event);
+    }
+});
+
+
+
+
+</script>
