@@ -1,25 +1,24 @@
-var nlp = require('natural');
-var tokenizer = new nlp.WordTokenizer();
-//var w2v = require('word2vec');
-var postagger=require('pos');
-export function Run(ocrText, speechText, mode, keywordsArr) {
+import nlp from 'natural';
+let tokenizer = new nlp.WordTokenizer();
+//let w2v = require('word2vec');
+import postagger from 'pos';
 
-	function Wordobj()
-	{
+export function Run(ocrText, speechText, mode, keywordsArr) {
+	function Wordobj() {
 		this.text="";
 		this.tag="";
-	}
-	var i, j;
-	var inptargettext = JSON.parse(ocrText); //INPUT from OCR/Text/Handwriting afte grammarcheck. Each array element is a line.
-	var inprecogtext = JSON.parse(speechText); //INPUT when user speaking out during learning after grammarcheck. Each array element is a line.
-	var matchtype = mode; //INPUT 0 = word to word, 1 = order matters, paraphrasing works, 2 = order also doesnt matter
-	var numlinestarget=inptargettext.length;
-	var numlinesrecog=inprecogtext.length;
-	var targettext = [];
-	var recogtext = [];
+	} 
+	let i, j;
+	let inptargettext = JSON.parse(ocrText); //INPUT from OCR/Text/Handwriting afte grammarcheck. Each array element is a line.
+	let inprecogtext = JSON.parse(speechText); //INPUT when user speaking out during learning after grammarcheck. Each array element is a line.
+	let matchtype = mode; //INPUT 0 = word to word, 1 = order matters, paraphrasing works, 2 = order also doesnt matter
+	let numlinestarget=inptargettext.length;
+	let numlinesrecog=inprecogtext.length;
+	let targettext = [];
+	let recogtext = [];
 	const INF = 1e5;
-	var dp0 = []; //for word to word, cost = number of targettext dropped
-	var prev0 = []; //for word to word
+	let dp0 = []; //for word to word, cost = number of targettext dropped
+	let prev0 = []; //for word to word
 	for(i = 0; i < numlinestarget; i++)
 	{
 		targettext[i]=[];
@@ -32,9 +31,9 @@ export function Run(ocrText, speechText, mode, keywordsArr) {
 	}
 	if(matchtype==0)
 	{
-		var lineartarget = [];
+		let lineartarget = [];
 		lineartarget.push("null");
-		var linearrecog = [];
+		let linearrecog = [];
 		linearrecog.push("null");
 		for(i = 0; i < numlinestarget; i++)
 		{
@@ -50,8 +49,8 @@ export function Run(ocrText, speechText, mode, keywordsArr) {
 				linearrecog.push(recogtext[i][j]);
 			}
 		}
-		var numwordstarget=lineartarget.length;
-		var numwordsrecog=linearrecog.length;
+		let numwordstarget=lineartarget.length;
+		let numwordsrecog=linearrecog.length;
 		for(i = 0; i <= numwordstarget; i++)
 		{
 			dp0[i]=[];
@@ -73,10 +72,10 @@ export function Run(ocrText, speechText, mode, keywordsArr) {
 		{
 			for(j = 1; j <= numwordsrecog; j++)
 			{
-				var trans1=dp0[i-1][j-1];
+				let trans1=dp0[i-1][j-1];
 				if(lineartarget[i]!=linearrecog[j]) trans1=INF;
-				var trans2=dp0[i-1][j]+1;
-				var trans3=dp0[i][j-1];
+				let trans2=dp0[i-1][j]+1;
+				let trans3=dp0[i][j-1];
 				if(trans1<=trans2 && trans1<=trans3)
 				{
 					dp0[i][j]=trans1;
@@ -95,11 +94,11 @@ export function Run(ocrText, speechText, mode, keywordsArr) {
 			//	console.log(i + " " + j + " = " + prev0[i][j]);
 			}
 		}
-		var currstate = [];
+		let currstate = [];
 		currstate = [numwordstarget, numwordsrecog];
 		//console.log(prev0[numwordstarget][numwordsrecog]);
-		var prevcand = [];
-		var missedlist = [] //FINAL OUTPUT WITH LIST OF MISSED WORDS
+		let prevcand = [];
+		let missedlist = [] //FINAL OUTPUT WITH LIST OF MISSED WORDS
 		while(true)
 		{
 		//	console.log(currstate + "\n");
