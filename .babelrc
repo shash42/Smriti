@@ -1,0 +1,4 @@
+{
+    "presets": ["env"]
+    // Add transform runtime plugin for testing
+}

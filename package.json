@@ -1,0 +1,39 @@
+{
+  "name": "smriti",
+  "version": "1.0.0",
+  "description": "Smriti means “Remembrance”. It is our novel solution to help you learn much faster with ease. It is an interactive learning aid that detects your notes through OCR technology, hears your answers and prompts you with what you're missing based on the real-time semantic matching of recognized speech (Natural Language Processing).",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "SET NODE_ENV = dev && node src/bin/dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir dist && babel src -s -d dist --copy-files",
+    "production": "SET NODE_ENV = production && node dist/bin/dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tandoori-Momos/Smriti.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tandoori-Momos/Smriti/issues"
+  },
+  "homepage": "https://github.com/Tandoori-Momos/Smriti#readme",
+  "dependencies": {
+    "algorithmia": "^0.3.10",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "natural": "^0.6.3",
+    "path": "^0.12.7",
+    "pos": "^0.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}

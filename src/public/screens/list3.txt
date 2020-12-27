@@ -1,0 +1,596 @@
+Program No: 14
+Name: Yashwardhann Kumar & Vaiskah P
+Date: 15-08-2018
+
+#include<iostream.h>
+#include<conio.h>
+
+struct DATE {
+	int Day;
+	int Month;
+	int Year;
+};
+
+class STUDENT {
+	private:
+	int Admno;
+	char Sname[20];
+	DATE DOB;
+
+	public:
+	void Input();
+	void Show();
+	DATE RDOB();
+};
+
+void STUDENT::Input() {
+	cout<<"Enter Admission Number: ";
+	cin>>Admno;
+	cout<<"Enter Name: ";
+	cin>>Sname;
+	cout<<"Enter DOB(Day-Month-Year): ";
+	cin>>DOB.Day>>DOB.Month>>DOB.Year;
+}
+
+void STUDENT::Show() {
+	cout<<"Admission Number; "<<Admno<<endl;
+	cout<<"Name: "<<Sname<<endl;
+	cout<<"Date of Birth: "<<DOB.Day<<":"<<DOB.Month<<":"<<DOB.Year<<endl;
+};
+
+DATE STUDENT::RDOB() {
+	return DOB;
+};
+
+void enter(STUDENT a[], int n) {
+	STUDENT temp;
+	temp.Input();
+
+	a[n] = temp;
+}
+
+void display(STUDENT a[], int n) {
+	for(int i = 0; i < n; i++) {
+		a[i].Show();
+	}
+}
+
+void disp(STUDENT a[], int n) {
+	for(int i = 0; i < n; i++) {
+		DATE dob = a[i].RDOB();
+
+		if(dob.Day == 1 && dob.Month == 1 && dob.Year == 1990) {
+			a[i].Show();
+		} else if(dob.Day == 2 && dob.Month == 2 && dob.Year == 1990) {
+			a[i].Show();
+		} else if(dob.Day == 3 && dob.Month == 3 && dob.Year == 1990) {
+			a[i].Show();
+		}
+	}
+}
+
+void main() {
+       clrscr();
+       int opt;
+       char choice;
+       STUDENT arr[100];
+       int n = 0;
+
+       do {
+		cout<<"1. Enter\n2. Display\n 3. Search\n";
+		cin>>opt;
+
+		if(opt == 1) {
+			enter(arr, n);
+			n++;
+		} else if(opt == 2) {
+			display(arr, n);
+		} else if(opt == 3) {
+			disp(arr,n);
+		}
+
+		cout<<"Do you wish to continue?";
+		cin>>choice;
+
+       } while(choice == 'y');
+
+       getch();
+}
+
+Program No: 15
+Name: Yashwardhann Kumar & Vaiskah P
+Date: 15-08-2018
+
+#include<fstream.h>
+#include<conio.h>
+#include<stdio.h>
+
+void Intext() {
+	fstream fil;
+	fil.open("Story.txt", ios::app);
+	char lin[80];
+	char ch;
+
+	do {
+		cout<<"Emter a line: ";
+		gets(lin);
+		fil<<lin<<endl;
+
+		cout<<"Do you want to continue?";
+		cin>>ch;
+	} while(ch == 'y');
+
+	fil.close();
+}
+
+void Outtext() {
+	fstream fil;
+	fil.open("Story.txt", ios::in);
+	char lin[80];
+	while(!fil.eof()) {
+		fil>>lin;
+		cout<<lin<<endl;
+
+	};
+
+	fil.close();
+}
+
+void main() {
+       clrscr();
+       int opt;
+       char choice;
+
+       do {
+		cout<<"1. Enter\n2. Display\n";
+		cin>>opt;
+
+		if(opt == 1) {
+			Intext();
+		} else if(opt == 2) {
+			Outtext();
+		}
+
+		cout<<"Do you wish to continue?";
+		cin>>choice;
+
+       } while(choice == 'y');
+
+       getch();
+}
+
+Program No: 16
+Name: Yashwardhann Kumar & Vaiskah P
+Date: 15-08-2018
+
+#include<fstream.h>
+#include<conio.h>
+#include<ctype.h>
+
+void CountAVD() {
+	fstream fil;
+	fil.open("Story.txt",ios::in);
+	char ch;
+	int alpha = 0, 	vowel = 0, digit = 0;
+
+	while(!fil.eof()) {
+		ch = fil.get();
+
+		if(tolower(ch)) {
+			ch = tolower(ch);
+		}
+
+		if(ch >= 'a' && ch <= 'z') {
+			alpha++;
+		}
+
+		if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+			vowel++;
+		}
+
+		if (ch >= 48 && ch <= 57) {
+			digit++;
+		}
+	}
+
+	fil.close();
+
+	cout<<"Alphabets: " <<alpha<<endl;
+	cout<<"Vowels: "<<vowel<<endl;
+	cout<<"Digits: "<<digit<<endl;
+
+}
+
+void main() {
+       clrscr();
+
+       CountAVD();
+
+       getch();
+}
+
+
+Program No: 17
+Name: Yashwardhann Kumar & Vaiskah P
+Date: 15-08-2018
+
+#include<fstream.h>
+#include<conio.h>
+#include<ctype.h>
+
+void RevText() {
+	fstream fil;
+	fil.open("Story.txt",ios::in);
+	char lin[80];
+
+	while(fil.getline(lin,80)) {
+		if(tolower(lin[0]) == 't') {
+			for(int i = 0; i < strlen(lin); i++) {
+				cout<<lin[strlen(lin)-i-1];
+			}
+
+			cout<<endl;
+		}
+	}
+
+	fil.close();
+
+}
+
+void main() {
+       clrscr();
+
+       RevText();
+
+       getch();
+}
+
+
+
+Program No: 18
+Name: Yashwardhann Kumar & Vaiskah P
+Date: 15-08-2018
+
+#include <conio.h>;
+#include <fstream.h>;
+#include <string.h>;
+#include <stdio.h>;
+#include <ctype.h>;
+
+class CANDIDATE {
+
+	int Cno;	
+	char Cname[20];
+	int Score;
+
+	public:
+
+	void Enter();
+	void Display();
+	int RScore();
+};
+
+
+void CANDIDATE::Enter(){
+	cout<<"Candidates Number : ";cin>>Cno;
+	cout<<"Candidates Name : ";gets(Cname);
+	cout<<"Candidates Score : ";cin>>Score;
+}
+
+void CANDIDATE::Display(){
+	cout<<"\nCandidates Number :" ;cout<<Cno;
+	cout<<"\nCandidates Name : ";puts(Cname);
+	cout<<"Candidates Score : ";cout<<Score<<endl;
+}
+
+int CANDIDATE::RScore(){
+	return Score;
+}
+
+void Enroll(){
+	ofstream f("candidate.dat",ios::binary);
+
+	CANDIDATE C; char CH=0;
+
+	do{
+
+		C.Enter();
+
+		f.write((char*)&C,sizeof(C));
+
+		cout<<"Do You Want to continue? (Y/N) "; cin>>CH;
+
+		CH=toupper(CH);
+
+	}while(CH=='Y');
+
+	f.close();
+
+}
+
+void GetPass(){
+
+	ifstream f("candidate.dat",ios::binary);
+
+	CANDIDATE C;
+
+	while(f.read((char*)&C,sizeof(C))){
+
+		if(C.RScore()>=33)
+
+			C.Display();
+
+		}
+
+	f.close();
+
+}
+
+void main(){
+
+	clrscr();
+
+	int choice=-1;
+
+	do{
+
+		cout<<"1. Enroll Candidate\n2. Display Passed Candidate\n";
+
+		cout<<"3. Exit"<<endl;
+
+		do{
+
+			cin>>choice;
+
+		} while(choice>3);
+
+		switch(choice){
+
+			case 1: Enroll(); break;
+
+			case 2: GetPass(); break;
+
+			case 3: break;
+
+			default: cout<<"error";
+
+		}
+
+	} while(choice!=3);
+
+	getch();
+
+}
+
+
+Program No: 19
+Name: Yashwardhann Kumar & Vaiskah P
+Date: 15-08-2018
+
+#include <conio.h>
+#include <fstream.h>
+#include <string.h>
+#include <stdio.h>
+#include <ctype.h>
+
+class ACCOUNT {
+
+	int Acno;
+	char Name[20];
+	float Balance;
+
+	public:
+
+	void Init();
+	void Show();
+	void Deposit(int Amt);
+	void Withdraw(int Amt);
+	float RBalance();
+	int RAcno();
+
+};
+
+void ACCOUNT::Init() {
+
+	cout<<"Account Number: "; cin>>Acno;
+	cout<<"Holders Name : "; gets(Name);
+	cout<<"Balance (>500): ";
+
+	do{
+		cin>>Balance;
+	} while(Balance<500);
+
+}
+
+void ACCOUNT::Show() {
+
+	cout<<"Account Number: "; cout<<Acno;
+
+	cout<<"\nHolders Name : "; puts(Name);
+
+	cout<<"Balance (>500): "; cout<<Balance<<endl;
+
+}
+
+void ACCOUNT::Deposit(int Amt) {
+	Balance+=Amt;
+}
+
+void ACCOUNT::Withdraw(int Amt) {
+
+	if ((Balance-Amt)>500) {
+		Balance-=Amt;
+	} else{
+		cout<<"You don&#39;t have enough balance!";
+	}
+
+}
+
+float ACCOUNT::RBalance(){
+	return Balance;
+}
+
+int ACCOUNT::RAcno(){
+	return Acno;
+}
+
+void Register(){
+
+	ofstream f("account.dat",ios::binary|ios::app);
+
+	ACCOUNT A; char CH=0;
+
+	do{
+
+		cout<<"Enter Details\n";
+
+		A.Init();
+
+		f.write((char*)&A,sizeof(A));
+
+		cout<<"Do you want to add more? (Y/N)"; 
+		cin>>CH; 
+		CH=toupper(CH); 
+	} while(CH=='Y');
+
+f.close();
+
+}
+
+void DisplayAll(){
+
+	ifstream f("account.dat",ios::binary);
+
+	ACCOUNT A;
+
+	while(f.read((char*)&A,sizeof(A))){
+
+		A.Show(); cout<<"\n";
+
+	}
+
+	f.close();
+
+}
+
+void Transact() {
+
+	cout<<"Enter Your Account Number: "; int ACNO=-1; cin>>ACNO;
+
+	int found=-1;
+
+	ifstream f("account.dat",ios::binary);
+
+	ofstream ftemp("temp-account.dat",ios::binary|ios::app);
+
+	ACCOUNT A;
+
+	while (f.read((char*)&A,sizeof(A))) {
+
+		if (A.RAcno()==ACNO && found==-1){
+
+			found++;
+
+			cout<<"Account Summary:"<<endl;
+
+			A.Show();
+
+			cout<<endl<<"1. Deposit\n2. Withdraw\n3. Go Back\n";
+
+			int choice=-1;
+
+			do{
+
+				cin>>choice;
+
+			}while(choice>3);
+
+			int AMT;
+
+			switch(choice){
+
+				case 1: cout<<"Enter the Amount to deposit: ";
+
+				AMT=0; cin>>AMT;
+
+				A.Deposit(AMT);
+
+				cout<<"\nAccount Balance:";
+
+				cout<<A.RBalance();
+
+				break;
+
+				case 2: cout<<"Enter the Amount to withdraw: "; AMT=0; cin>>AMT;
+
+				A.Withdraw(AMT);
+
+				cout<<"\nAccount Balance:";
+
+				cout<<A.RBalance();
+
+				break;
+
+				case 3: ;
+
+			}
+
+			ftemp.write((char*)&A,sizeof(A));
+
+		}else{
+
+		ftemp.write((char*)&A,sizeof(A));
+
+		}
+
+	}
+
+	if (found==-1){
+
+	cout<<"Account Not Registered!";
+
+	}
+
+	f.close();
+
+	ftemp.close();
+
+	remove("account.dat"); rename("temp-account.dat","account.dat");
+
+}
+
+void main() {
+
+	int choice=-1;
+
+	clrscr();
+
+	do{
+
+		cout<<"1. New Account\n2. Make Transaction\n3. ";
+
+		cout<<"Display All\n4. Exit\n";
+
+		do{
+
+			cin>>choice;
+
+		}while(choice>4);
+
+		switch(choice){
+
+			case 1: Register(); break;
+
+			case 2: Transact(); cout<<endl; break;
+
+			case 3: DisplayAll(); break;
+
+			case 4: ;
+
+		}
+
+	}while(choice!=4);
+
+	getch();
+
+}
